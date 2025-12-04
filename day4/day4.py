@@ -24,13 +24,20 @@ for line in lines:
     grid.append(line)
 
 accessible_rolls = 0
-for row in range(1, len(grid) - 1):
-    for col in range(1, len(grid[row]) - 1):
-        if grid[row][col] == '.':
-            continue
+accessible_rolls_found_this_round = -1
 
-        if is_accessible(grid, row, col):
-            accessible_rolls += 1
+while accessible_rolls_found_this_round != 0:
+    accessible_rolls_found_this_round = 0
+    for row in range(1, len(grid) - 1):
+        for col in range(1, len(grid[row]) - 1):
+            if grid[row][col] == '.':
+                continue
+
+            if is_accessible(grid, row, col):
+                accessible_rolls_found_this_round += 1
+                grid[row][col] = '.'
+    print(f"Accessible rolls found this round: {accessible_rolls_found_this_round}")
+    accessible_rolls += accessible_rolls_found_this_round
 
 print(f"Total accessible rolls: {accessible_rolls}")
         
