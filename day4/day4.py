@@ -36,7 +36,7 @@ while accessible_rolls_found_this_round != 0:
             if is_accessible(grid, row, col):
                 accessible_rolls_found_this_round += 1
                 grid[row][col] = '.'
-    print(f"Accessible rolls found this round: {accessible_rolls_found_this_round}")
+    # print(f"Accessible rolls found this round: {accessible_rolls_found_this_round}")
     accessible_rolls += accessible_rolls_found_this_round
 
 print(f"Total accessible rolls: {accessible_rolls}")
